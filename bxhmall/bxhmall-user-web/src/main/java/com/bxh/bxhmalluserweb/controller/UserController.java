@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("user")
 public class UserController {
 
-    @Reference(timeout = 6000,retries = 3)
+    @Reference(timeout = 60000,retries = 3)
     private UserService userService ;
 
     @RequestMapping("findAll")
