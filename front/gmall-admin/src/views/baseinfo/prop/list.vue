@@ -50,7 +50,6 @@
 
       <div style="margin-bottom:10px;">
         <el-button type="primary" icon="el-icon-plus" size="mini" @click="addAttrValue()">添加属性值</el-button>
-
       </div>
       <div>
         <el-table
@@ -179,9 +178,10 @@ export default {
       // 获取属性值列表
       this.attrValueListLoading = true
       prop.getAttrValueList(attrId).then(response => {
-        this.attrInfoForm.id = attrId
-        this.attrInfoForm.attrName = attrName
-        this.attrInfoForm.attrValueList = response.data
+        console.log(response)
+        this.attrInfoForm.id = response.data.attrId
+        this.attrInfoForm.attrName = response.data.attrName
+        this.attrInfoForm.attrValueList = response.data.data
         this.attrValueListLoading = false
       })
       // 显示表单
