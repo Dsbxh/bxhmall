@@ -6,7 +6,6 @@
     <modules>
         <module>bxhmall-common-util</module>
         <module>bxhmall-api</module>
-        <module>bxhmall-service-util</module>
         <module>bxhmall-user-service</module>
         <module>bxhmall-user-web</module>
         <module>bxhmall-manager-web</module>

@@ -2,8 +2,46 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bxh.bxhmallmanagerservice.mapper.ManagerMapper">
 
+    <resultMap id="attrValueMap" type="com.bxh.bxhmall.response.GetAttrValueResp">
+        <id column="attr_id" property="attrId"></id>
+        <result column="attr_name" property="attrName"></result>
+        <collection property="data" ofType="com.bxh.bxhmall.response.AttrValueListResp" column="attr_id">
+            <result property="id" column="id"></result>
+            <result property="valueName" column="value_name"></result>
+            <result property="isEnabled" column="is_enabled"></result>
+        </collection>
+    </resultMap>
+    <insert id="saveAttrInfo">
+        <foreach collection="req.attrValueList" item="item" separator=";">
+            insert into pms_base_attr_value
+            (id,value_name,attr_id,is_enabled)
+            values
+            (#{item.id},#{item.valueName},#{req.id},#{item.isEnabled})
+            ON DUPLICATE KEY UPDATE
+            value_name = values(value_name),
+            is_enabled = values(is_enabled)
+        </foreach>
+    </insert>
+    <delete id="deleteAttrInfo">
+        DELETE FROM pms_base_attr_value WHERE attr_id = #{attrId}
+    </delete>
 
-    <select id="selectCatalog" resultType="com.bxh.bxhmall.beans.PmsBaseCatalogBase">
+    <select id="selectCatalog" resultType="com.bxh.bxhmall.response.PmsBaseCatalogBase">
         SELECT id,name FROM pms_base_catalog where parent_id = #{catalogId}
+    </select>
+    <select id="selectAttrInfoByCatalogId" resultType="com.bxh.bxhmall.response.PmsBaseAttrInfo">
+        SELECT id,attr_name,catalog_id,is_enabled FROM pms_base_attr_info where catalog_id = #{catalogId}
+    </select>
+    <select id="selectAttrValueList" resultMap="attrValueMap">
+        SELECT
+            tbValue.id,
+            tbValue.value_name,
+            tbValue.is_enabled,
+            tbInfo.id as attr_id,
+            tbInfo.attr_name
+        FROM
+            pms_base_attr_value tbValue
+            LEFT JOIN pms_base_attr_info tbInfo ON tbValue.attr_id = tbInfo.id
+            WHERE tbValue.attr_id = #{attrId}
     </select>
 </mapper>

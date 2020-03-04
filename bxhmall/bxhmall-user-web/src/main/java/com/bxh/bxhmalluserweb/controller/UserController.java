@@ -1,10 +1,9 @@
 package com.bxh.bxhmalluserweb.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.bxh.bxhmall.beans.UmsMember;
-import com.bxh.bxhmall.beans.UmsMemberReceiveAddress;
+import com.bxh.bxhmall.response.UmsMember;
+import com.bxh.bxhmall.response.UmsMemberReceiveAddress;
 import com.bxh.bxhmall.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -3,7 +3,7 @@
 <mapper namespace="com.bxh.bxhmalluser.mapper.UserMapper">
 
 
-    <select id="selectAllUser" resultType="com.bxh.bxhmall.beans.UmsMember">
+    <select id="selectAllUser" resultType="com.bxh.bxhmall.response.UmsMember">
         select * from ums_member
     </select>
 </mapper>

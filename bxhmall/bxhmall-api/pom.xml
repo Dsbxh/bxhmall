@@ -13,6 +13,7 @@
     <packaging>jar</packaging>
 
     <dependencies>
+        <!-- 用于接口集成tkmapper -->
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper-spring-boot-starter</artifactId>
@@ -24,6 +25,7 @@
             </exclusions>
         </dependency>
 
+        <!-- lombok 只用于实体类上，单独在此处使用-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -31,7 +33,7 @@
             <scope>provided</scope>
         </dependency>
 
-
+        <!-- 通用依赖 -->
         <dependency>
             <groupId>com.bxh</groupId>
             <artifactId>bxhmall-common-util</artifactId>

@@ -2,8 +2,8 @@ package com.bxh.bxhmalluser.service.impl;
 
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.bxh.bxhmall.beans.UmsMember;
-import com.bxh.bxhmall.beans.UmsMemberReceiveAddress;
+import com.bxh.bxhmall.response.UmsMember;
+import com.bxh.bxhmall.response.UmsMemberReceiveAddress;
 import com.bxh.bxhmall.service.UserService;
 import com.bxh.bxhmalluser.mapper.UserMapper;
 import com.bxh.bxhmalluser.mapper.UserReceiveAddressMapper;

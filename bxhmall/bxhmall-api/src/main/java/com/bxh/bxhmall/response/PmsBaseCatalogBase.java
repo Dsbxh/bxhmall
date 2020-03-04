@@ -1,4 +1,4 @@
-package com.bxh.bxhmall.beans;
+package com.bxh.bxhmall.response;
 
 import lombok.Data;
 import javax.persistence.*;

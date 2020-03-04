@@ -1,7 +1,7 @@
 package com.bxh.bxhmall.service;
 
-import com.bxh.bxhmall.beans.UmsMember;
-import com.bxh.bxhmall.beans.UmsMemberReceiveAddress;
+import com.bxh.bxhmall.response.UmsMember;
+import com.bxh.bxhmall.response.UmsMemberReceiveAddress;
 
 import java.util.List;
 
